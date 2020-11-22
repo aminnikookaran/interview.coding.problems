@@ -1,9 +1,10 @@
-package problems.math;
+package interviewbit.programming.math;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindPrimesProblem {
+// https://www.interviewbit.com/problems/prime-numbers/
+public class PrimeNumbers {
   public static ArrayList<Integer> getPrimes(int A) {
     ArrayList<Integer> primes = new ArrayList<>();
     for (int i = 2; i <= A; i++) {

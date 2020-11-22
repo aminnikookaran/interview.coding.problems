@@ -3,6 +3,7 @@ package interviewbit.programming.math;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://www.interviewbit.com/problems/fizzbuzz/
 public class FizzBuzz {
   public static List<String> fizzBuzz(int A) {
     List<String> list = new ArrayList<>();

@@ -1,6 +1,7 @@
-package problems.math;
+package interviewbit.programming.math;
 
-public class BinaryrepresentationProblem {
+// https://www.interviewbit.com/problems/binary-representation/
+public class BinaryRepresentation {
   public static String findDigitsInBinary(int A) {
     if (A == 0) return "0";
     String binary = "";

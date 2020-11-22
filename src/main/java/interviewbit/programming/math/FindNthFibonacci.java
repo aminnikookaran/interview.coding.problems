@@ -1,6 +1,7 @@
-package problems.math;
+package interviewbit.programming.math;
 
-public class FindNthFibonacciProblem {
+// https://www.interviewbit.com/problems/find-nth-fibonacci/
+public class FindNthFibonacci {
   public static int solveSlow(int A) {
     if (A < 3) return 1;
     long fibPre = 1;

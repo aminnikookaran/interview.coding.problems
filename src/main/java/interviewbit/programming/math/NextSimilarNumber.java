@@ -1,7 +1,8 @@
 package interviewbit.programming.math;
 
+// https://www.interviewbit.com/problems/next-similar-number/
 public class NextSimilarNumber {
-  public static String solve(String A) {
+  public static String solve1(String A) {
     if (A.length() < 2) return "-1";
     int[] digits = new int[10];
     int currentDigit = Integer.parseInt(A.substring(A.length() - 1, A.length()));
@@ -33,7 +34,27 @@ public class NextSimilarNumber {
     return B;
   }
 
+  public static String solve2(String A) {
+    char[] a = A.toCharArray();
+    int i = a.length - 2;
+    while (i >= 0 && a[i] >= a[i + 1]) i--;
+    if (i == -1) return "-1";
+    int j = a.length - 1;
+    while (j >= 0 && a[j] <= a[i]) j--;
+    char temp = a[i];
+    a[i] = a[j];
+    a[j] = temp;
+    int start = i + 1;
+    int end = a.length - 1;
+    while (start < end) {
+      temp = a[start];
+      a[start++] = a[end];
+      a[end--] = temp;
+    }
+    return new String(a);
+  }
+
   public static void main(String[] args) {
-    System.out.println(solve("740948"));
+    System.out.println(solve1("742321"));
   }
 }

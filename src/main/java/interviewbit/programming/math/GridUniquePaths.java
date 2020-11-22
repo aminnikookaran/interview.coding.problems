@@ -1,6 +1,7 @@
 package interviewbit.programming.math;
 
-public class GridUniquePathsNumber {
+// https://www.interviewbit.com/problems/grid-unique-paths/
+public class GridUniquePaths {
   public static int uniquePaths1(int A, int B) {
     if (A < 1 || B < 1) return 0;
     if (A == 1 || B == 1) return 1;
@@ -31,9 +32,7 @@ public class GridUniquePathsNumber {
       n--;
     }
     long res1 = 1;
-    for (int i = 1; i <= r; i++) {
-      res1 *= i;
-    }
+    for (int i = 1; i <= r; i++) res1 *= i;
     return (int) (res / res1);
   }
 

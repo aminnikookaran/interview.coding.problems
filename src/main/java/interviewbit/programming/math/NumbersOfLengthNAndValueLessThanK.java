@@ -3,6 +3,7 @@ package interviewbit.programming.math;
 import java.util.Arrays;
 import java.util.List;
 
+// https://www.interviewbit.com/problems/numbers-of-length-n-and-value-less-than-k/
 public class NumbersOfLengthNAndValueLessThanK {
   public static int solve1(List<Integer> A, int B, int C) {
     if (A.size() < 1) return 0;

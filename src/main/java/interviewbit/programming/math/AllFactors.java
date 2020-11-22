@@ -1,9 +1,10 @@
-package problems.math;
+package interviewbit.programming.math;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllFactorsProblem {
+// https://www.interviewbit.com/problems/all-factors/
+public class AllFactors {
   public static ArrayList<Integer> allFactors(int A) {
     ArrayList<Integer> factors = new ArrayList<>();
     ArrayList<Integer> tempFactors = new ArrayList<>();

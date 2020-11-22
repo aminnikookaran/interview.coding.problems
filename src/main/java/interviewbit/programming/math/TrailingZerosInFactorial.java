@@ -1,5 +1,6 @@
 package interviewbit.programming.math;
 
+// https://www.interviewbit.com/problems/trailing-zeros-in-factorial/
 public class TrailingZerosInFactorial {
   public static int trailingZeroes(int A) {
     int count = 0;

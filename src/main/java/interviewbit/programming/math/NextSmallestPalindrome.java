@@ -1,8 +1,9 @@
-package problems.math;
+package interviewbit.programming.math;
 
 import java.math.BigInteger;
 
-public class NextSmallestPalindromeProblem {
+// https://www.interviewbit.com/problems/next-smallest-palindrome/
+public class NextSmallestPalindrome {
   public static String solve1(String A) {
     int n = A.length();
     if (n == 0) {
@@ -173,7 +174,7 @@ public class NextSmallestPalindromeProblem {
   }
 
   public static void main(String[] args) {
-//    System.out.println(solve2("387427793198650286024"));
+    //    System.out.println(solve2("387427793198650286024"));
     System.out.println(solve3("12345"));
   }
 }

@@ -1,10 +1,11 @@
-package problems.arrays;
+package interviewbit.programming.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PerfectPeakProblem {
+// https://www.interviewbit.com/problems/perfect-peak-of-array/
+public class PerfectPeakOfArray {
   public static long solve1(List<Integer> a) {
     if (a.size() < 3) return 0;
     int candidate = a.get(0);
@@ -34,9 +35,9 @@ public class PerfectPeakProblem {
       min = Math.min(A.get(A.size() - i - 1), min);
       mins.add(0, min);
     }
-    for (int i = 1; i < A.size() - 1; i++) {
+    for (int i = 1; i < A.size() - 1; i++)
       if (maxs.get(i - 1) < A.get(i) && A.get(i) < mins.get(i + 1)) return 1;
-    }
+
     return 0;
   }
 

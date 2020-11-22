@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// https://www.interviewbit.com/problems/repeat-and-missing-number-array/
 public class RepeatAndMissingNumberArray {
   public static List<Integer> repeatedNumber1(final List<Integer> A) {
     Set<Integer> numbers = new HashSet<>();

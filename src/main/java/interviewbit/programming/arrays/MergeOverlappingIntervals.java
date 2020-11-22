@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+// https://www.interviewbit.com/problems/merge-overlapping-intervals/
 public class MergeOverlappingIntervals {
   public static class Interval {
     int start;

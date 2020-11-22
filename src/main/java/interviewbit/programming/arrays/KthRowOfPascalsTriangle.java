@@ -1,10 +1,11 @@
-package problems.arrays;
+package interviewbit.programming.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class KthRowofPascalsTriangleProblem {
+// https://www.interviewbit.com/problems/kth-row-of-pascals-triangle/
+public class KthRowOfPascalsTriangle {
   public static List<Integer> solve1(int a) {
     List<Integer> pre = new ArrayList<>();
     List<Integer> cur = new ArrayList<>();

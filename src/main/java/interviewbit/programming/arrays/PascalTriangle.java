@@ -3,6 +3,7 @@ package interviewbit.programming.arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+// https://www.interviewbit.com/problems/pascal-triangle/
 public class PascalTriangle {
   public static List<List<Integer>> solve(int A) {
     List<List<Integer>> B = new ArrayList<>();

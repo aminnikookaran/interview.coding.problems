@@ -1,11 +1,12 @@
 package cracking.treesgraphs;
 
 public class TreeNode {
-  int value;
+  int data;
   TreeNode left;
   TreeNode right;
+  TreeNode parent;
 
-  public TreeNode(int value) {
-    this.value = value;
+  public TreeNode(int data) {
+    this.data = data;
   }
 }

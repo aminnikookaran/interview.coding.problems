@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class StringRotation {
   boolean isRotation(String sl, String s2) {

@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class ZeroMatrix {
   public static void setZeros1(int[][] matrix) {

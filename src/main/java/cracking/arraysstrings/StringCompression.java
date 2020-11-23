@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class StringCompression {
   public static String compress1(String str) {

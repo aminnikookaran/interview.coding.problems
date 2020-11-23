@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class URLify {
   public static void replaceSpaces2(char[] str, int trueLength) {

@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 import java.util.HashMap;
 import java.util.Map;

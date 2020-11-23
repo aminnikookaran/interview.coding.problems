@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class PalindromePermutation {
   public static boolean isPermutationOfPalindrome1(String phrase) {

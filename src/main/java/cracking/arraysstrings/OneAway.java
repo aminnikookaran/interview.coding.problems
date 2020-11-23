@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class OneAway {
   public static boolean oneEditAway1(String first, String second) {

@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 import java.util.HashSet;
 import java.util.Set;

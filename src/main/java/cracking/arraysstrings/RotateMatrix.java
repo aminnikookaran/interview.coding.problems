@@ -1,4 +1,4 @@
-package cracking.arraysandstrings;
+package cracking.arraysstrings;
 
 public class RotateMatrix {
   public static boolean rotate(int[][] matrix) {

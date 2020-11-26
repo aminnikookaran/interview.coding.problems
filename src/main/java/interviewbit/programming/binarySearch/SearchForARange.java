@@ -85,7 +85,6 @@ public class SearchForARange {
     if (l <= r) {
       int m = (l + r) / 2;
       if ((m == 0 || b > a.get(m - 1)) && a.get(m) == b) {
-
         return m;
       }
       if (b > a.get(m)) {

@@ -2,8 +2,6 @@ package cracking.sortingsearching;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class MissingInt {
@@ -11,7 +9,7 @@ public class MissingInt {
   byte[] bitfield = new byte[(int) (numberOfInts / 8)];
   String filename = "";
 
-  void findOpenNumber() throws FileNotFoundException {
+  void findOpenNumber1() throws FileNotFoundException {
     Scanner in = new Scanner(new FileReader(filename));
     while (in.hasNextInt()) {
       int n = in.nextInt();
@@ -33,27 +31,77 @@ public class MissingInt {
     }
   }
 
-  public static void main(String[] args) {
-    int[] arr = new int[] {3, 4, 1, 6, 2};
-    int[] output = new int[arr.length];
-    Map<Integer, Integer> map = new HashMap<>();
-    for (int i = 0; i < arr.length; i++) map.put(arr[i], i);
-    for (int i = 0; i < arr.length; i++) {
-      Integer index1 = map.get(arr[i] + 1);
-      Integer index2 = map.get(arr[i] + 2);
-      int start = 0, end = arr.length;
-      if (index1 != null) {
-        if (index1 < i) start = index1;
-        else end = index1;
-      }
-      if (index2 != null) {
-        if (index2 < i) start = Math.max(start, index2);
-        else end = Math.min(end, index2);
-      }
-      output[i] = end - start;
+  int findOpenNumber(String filename) throws FileNotFoundException {
+    int rangeSize = (1 << 20); // 2^20 bits (2^17 bytes)
+    /* Get count of number of values within each block. */
+    int[] blocks = getCountPerBlock(filename, rangeSize);
+    /* Find a block with a missing value. */
+    int blockIndex = findBlockWithMissing(blocks, rangeSize);
+    if (blockIndex < 0) return -1;
+    /* Create bit vector for items within this range. */
+    byte[] bitVector = getBitVectorForRange(filename, blockIndex, rangeSize);
+    /* Find a zero in the bit vector */
+    int offset = findZero(bitVector);
+    if (offset < 0) return -1;
+    /* Compute missing value. */
+    return blockIndex * rangeSize + offset;
+  }
+
+  /* Get count of items within each range. */
+  int[] getCountPerBlock(String filename, int rangeSize) throws FileNotFoundException {
+    int arraySize = Integer.MAX_VALUE / rangeSize + 1;
+    int[] blocks = new int[arraySize];
+    Scanner in = new Scanner(new FileReader(filename));
+    while (in.hasNextInt()) {
+      int value = in.nextInt();
+      blocks[value / rangeSize]++;
     }
-    StringBuilder stringBuilder = new StringBuilder();
-    for (int i = 0; i < output.length; i++) stringBuilder.append(output[i] + " ");
-    System.out.println(stringBuilder);
+    in.close();
+    return blocks;
+  }
+
+  /* Find a block whose count is low. */
+  int findBlockWithMissing(int[] blocks, int rangeSize) {
+    for (int i = 0; i < blocks.length; i++) if (blocks[i] < rangeSize) return i;
+    return -1;
+  }
+
+  /* Create a bit vector for the values within a specific range. */
+  byte[] getBitVectorForRange(String filename, int blockindex, int rangeSize)
+      throws FileNotFoundException {
+    int startRange = blockindex * rangeSize;
+    int endRange = startRange + rangeSize;
+    byte[] bitVector = new byte[rangeSize / Byte.SIZE];
+    Scanner in = new Scanner(new FileReader(filename));
+    while (in.hasNextInt()) {
+      int value = in.nextInt();
+      /* If the number is inside the block that's missing numbers, we record it */
+      if (startRange <= value && value < endRange) {
+        int offset = value - startRange;
+        int mask = (1 << (offset % Byte.SIZE));
+        bitVector[offset / Byte.SIZE] |= mask;
+      }
+    }
+    in.close();
+    return bitVector;
+  }
+
+  /*Find bit index that is 0 within byte. */
+  int findZero(byte b) {
+    for (int i = 0; i < Byte.SIZE; i++) {
+      int mask = 1 << i;
+      if ((b & mask) == 0) return i;
+    }
+    return -1;
+  }
+
+  /*Find a zero within the bit vector and return the index. */
+  int findZero(byte[] bitVector) {
+    for (int i = 0; i < bitVector.length; i++)
+      if (bitVector[i] != ~0) { // If not all 1s
+        int bitindex = findZero(bitVector[i]);
+        return i * Byte.SIZE + bitindex;
+      }
+    return -1;
   }
 }

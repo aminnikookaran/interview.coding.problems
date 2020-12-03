@@ -2,52 +2,57 @@ package interviewbit.programming.math;
 
 // https://www.interviewbit.com/problems/find-nth-fibonacci/
 public class FindNthFibonacci {
-  public static int solveSlow(int A) {
-    if (A < 3) return 1;
+  public static long solve1(int n) {
+    if (n < 3) return 1;
     long fibPre = 1;
     long fibPrePre = 1;
     long fibCurr = 1;
-    for (long i = 3; i <= A; i++) {
-      fibCurr = (fibPre + fibPrePre) % 1000000007;
+    for (int i = 3; i <= n; i++) {
+      fibCurr = fibPre + fibPrePre;
       fibPrePre = fibPre;
       fibPre = fibCurr;
     }
-    return (int) fibCurr;
+    return fibCurr;
   }
 
-  public static int solveFast(int A) {
-    String binary = "";
-    while (A > 0) {
-      binary = (A % 2) + binary;
-      A /= 2;
-    }
-    if (binary.length() == 0) binary = "0";
+  public static long solve2(int n) {
+    if (n < 3) return 1;
+    long[] a = new long[n + 1];
+    a[0] = 1;
+    a[1] = 1;
+    a[2] = 1;
+    for (int i = 3; i <= n; i++) a[i] = a[i - 1] + a[i - 2];
+    return a[n];
+  }
 
+  public static long solve3(int n) {
     long[] fibi = new long[] {1, 1, 1, 0};
     long[] result = new long[] {1, 0, 0, 1};
-    for (int i = binary.length() - 1; i >= 0; i--) {
-      if (i < binary.length() - 1) fibi = multiply(fibi, fibi);
-
-      if (binary.charAt(i) == '1') result = multiply(result, fibi);
+    while (n > 0) {
+      if (n % 2 == 1) result = multiply(result, fibi);
+      n /= 2;
+      fibi = multiply(fibi, fibi);
     }
-    return (int) result[1];
+    return result[1];
   }
 
-  public static long[] multiply(long[] A, long[] B) {
-    long[] C = new long[4];
-    C[0] = (A[0] * B[0] + A[1] * B[2]) % 1000000007;
-    C[1] = (A[0] * B[1] + A[1] * B[3]) % 1000000007;
-    C[2] = (A[2] * B[0] + A[3] * B[2]) % 1000000007;
-    C[3] = (A[2] * B[1] + A[3] * B[3]) % 1000000007;
-    return C;
+  public static long[] multiply(long[] a, long[] b) {
+    long[] c = new long[4];
+    c[0] = a[0] * b[0] + a[1] * b[2];
+    c[1] = a[0] * b[1] + a[1] * b[3];
+    c[2] = a[2] * b[0] + a[3] * b[2];
+    c[3] = a[2] * b[1] + a[3] * b[3];
+    return c;
   }
 
   public static void main(String[] args) {
-    int A = 100;
+    int n = 100;
     System.out.println(System.currentTimeMillis());
-    System.out.println(solveSlow(A));
+    System.out.println(solve1(n));
     System.out.println(System.currentTimeMillis());
-    System.out.println(solveFast(A));
+    System.out.println(solve2(n));
+    System.out.println(System.currentTimeMillis());
+    System.out.println(solve3(n));
     System.out.println(System.currentTimeMillis());
   }
 }

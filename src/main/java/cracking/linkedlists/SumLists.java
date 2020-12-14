@@ -26,11 +26,11 @@ public class SumLists {
   }
 
   LinkedListNode addLists2(LinkedListNode l1, LinkedListNode l2) {
-    int lenl = length(l1);
+    int len1 = length(l1);
     int len2 = length(l2);
     /* Pad the shorter list with zeros - see note (1) */
-    if (lenl < len2) l1 = padList(l1, len2 - lenl);
-    else l2 = padList(l2, lenl - len2);
+    if (len1 < len2) l1 = padList(l1, len2 - len1);
+    else l2 = padList(l2, len1 - len2);
 
     /* Add lists */
     PartialSum sum = addListsHelper(l1, l2);

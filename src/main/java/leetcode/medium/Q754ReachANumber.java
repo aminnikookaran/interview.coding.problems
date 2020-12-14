@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 // https://leetcode.com/problems/reach-a-number/
-public class ReachANumber {
+public class Q754ReachANumber {
   public static int reachNumber1(int target) {
     target = Math.abs(target);
     int i = 0;

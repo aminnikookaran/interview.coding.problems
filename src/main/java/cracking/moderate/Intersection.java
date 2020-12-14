@@ -52,29 +52,4 @@ public class Intersection {
     one.setlocation(two.x, two.y);
     two.setlocation(x, y);
   }
-
-  public class Line {
-    public double slope, yintercept;
-
-    public Line(Point start, Point end) {
-      double deltaY = end.y - start.y;
-      double deltaX = end.x - start.x;
-      slope = deltaY / deltaX; // Will be Infinity (not exception) when deltaX 0
-      yintercept = end.y - slope * end.x;
-    }
-  }
-
-  public class Point {
-    public double x, y;
-
-    public Point(double x, double y) {
-      this.x = x;
-      this.y = y;
-    }
-
-    public void setlocation(double x, double y) {
-      this.x = x;
-      this.y = y;
-    }
-  }
 }

@@ -9,6 +9,7 @@ public class FlipBitToWin {
     List<Integer> sequences = getAlternatingSequences(n);
     return findLongestSequence(sequences);
   }
+  
   /* Return a list of the sizes of the sequences. The sequence starts off with the
   number of 0s (which might be 0) and then alternates with the counts of each
   value.*/
@@ -32,7 +33,7 @@ public class FlipBitToWin {
     return sequences;
   }
 
-  /* Given the lengths of alternating sequences of 0s and ls, find the longest one
+  /* Given the lengths of alternating sequences of 0s and 1s, find the longest one
    * we can build. */
   int findLongestSequence(List<Integer> seq) {
     int maxSeq = 1;
@@ -56,7 +57,7 @@ public class FlipBitToWin {
   }
 
   int flipBit(int a) {
-    /* If all ls, this is already the longest sequence. */
+    /* If all 1s, this is already the longest sequence. */
     if (~a == 0) return Integer.BYTES * 8;
 
     int currentLength = 0;

@@ -1,6 +1,28 @@
 package cracking.moderate;
 
+import java.util.List;
+
 public class XMLEncoding {
+  class Element {
+    public List<Attribute> attributes;
+    public String value;
+    public List<Element> children;
+
+    public String getNameCode() {
+      // TODO Auto-generated method stub
+      return null;
+    }
+  }
+
+  class Attribute {
+    public String value;
+
+    public String getTagCode() {
+      // TODO Auto-generated method stub
+      return null;
+    }
+  }
+
   void encode(Element root, StringBuilder sb) {
     encode(root.getNameCode(), sb);
     for (Attribute a : root.attributes) {

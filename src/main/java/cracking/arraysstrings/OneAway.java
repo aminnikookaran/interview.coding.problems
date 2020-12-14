@@ -8,26 +8,26 @@ public class OneAway {
     return false;
   }
 
-  public static boolean oneEditReplace(String sl, String s2) {
+  public static boolean oneEditReplace(String s1, String s2) {
     boolean foundDifference = false;
-    for (int i = 0; i < sl.length(); i++)
-      if (sl.charAt(i) != s2.charAt(i)) {
+    for (int i = 0; i < s1.length(); i++)
+      if (s1.charAt(i) != s2.charAt(i)) {
         if (foundDifference) return false;
         foundDifference = true;
       }
     return true;
   }
 
-  /* Check if you can insert a character into sl to make s2. */
-  public static boolean oneEditinsert(String sl, String s2) {
-    int indexl = 0;
+  /* Check if you can insert a character into s1 to make s2. */
+  public static boolean oneEditinsert(String s1, String s2) {
+    int index1 = 0;
     int index2 = 0;
-    while (index2 < s2.length() && indexl < sl.length()) {
-      if (sl.charAt(indexl) != s2.charAt(index2)) {
-        if (indexl != index2) return false;
+    while (index2 < s2.length() && index1 < s1.length()) {
+      if (s1.charAt(index1) != s2.charAt(index2)) {
+        if (index1 != index2) return false;
         index2++;
       } else {
-        indexl++;
+        index1++;
         index2++;
       }
     }
@@ -39,19 +39,19 @@ public class OneAway {
     if (Math.abs(first.length() - second.length()) > 1) return false;
 
     /* Get shorter and longer string.*/
-    String sl = first.length() < second.length() ? first : second;
+    String s1 = first.length() < second.length() ? first : second;
     String s2 = first.length() < second.length() ? second : first;
 
-    int indexl = 0;
+    int index1 = 0;
     int index2 = 0;
     boolean foundDifference = false;
-    while (index2 < s2.length() && indexl < sl.length()) {
-      if (sl.charAt(indexl) != s2.charAt(index2)) {
+    while (index2 < s2.length() && index1 < s1.length()) {
+      if (s1.charAt(index1) != s2.charAt(index2)) {
         /* Ensure that this is the first difference found.*/
         if (foundDifference) return false;
         foundDifference = true;
-        if (sl.length() == s2.length()) indexl++; // On replace, move shorter pointer
-      } else indexl++; // If matching, move shorter pointer
+        if (s1.length() == s2.length()) index1++; // On replace, move shorter pointer
+      } else index1++; // If matching, move shorter pointer
       index2++; // Always move pointer for longer string
     }
     return true;

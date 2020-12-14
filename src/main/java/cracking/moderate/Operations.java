@@ -14,7 +14,7 @@ public class Operations {
 
   /* Subtract two numbers by negating b and adding them*/
   int minus(int a, int b) {
-    return a + negate1(b);
+    return a + negate(b);
   }
 
   int negate(int a) {

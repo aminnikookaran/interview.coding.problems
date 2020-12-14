@@ -46,7 +46,7 @@ public class NextNumber {
     int p = c0 + c1; // position of rightmost non-trailing one
     n &= ((~0) << (p + 1)); // clears from bit p onwards
 
-    int mask = (1 << (c1 + 1)) - 1; // Sequence of (c1+l) ones
+    int mask = (1 << (c1 + 1)) - 1; // Sequence of (c1+1) ones
     n |= mask << (c0 - 1);
 
     return n;

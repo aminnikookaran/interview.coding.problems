@@ -1,0 +1,25 @@
+package leetcode.easy;
+
+// https://leetcode.com/problems/ugly-number/
+public class Q0263UglyNumber {
+  public boolean isUgly1(int num) {
+    if (num == 1) return true;
+    if (num < 2) return false;
+    while (num > 1) {
+      if (num % 5 == 0) num /= 5;
+      else if (num % 3 == 0) num /= 3;
+      else if (num % 2 == 0) num /= 2;
+      else return false;
+    }
+    return true;
+  }
+
+  public boolean isUgly2(int num) {
+    if (num == 0) return false;
+    if (num == 1) return true;
+    if (num % 2 == 0) return isUgly2(num / 2);
+    if (num % 3 == 0) return isUgly2(num / 3);
+    if (num % 5 == 0) return isUgly2(num / 5);
+    return false;
+  }
+}

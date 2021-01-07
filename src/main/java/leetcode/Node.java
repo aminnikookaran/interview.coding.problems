@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.List;
+
 public class Node {
   public int key;
   public int val;
@@ -8,6 +10,7 @@ public class Node {
   public Node next;
   public Node prev;
   public Node random;
+  public List<Node> neighbors;
 
   public Node() {}
 
@@ -25,5 +28,10 @@ public class Node {
     this.left = left;
     this.right = right;
     this.next = next;
+  }
+
+  public Node(int val, List<Node> neighbors) {
+    this.val = val;
+    this.neighbors = neighbors;
   }
 }

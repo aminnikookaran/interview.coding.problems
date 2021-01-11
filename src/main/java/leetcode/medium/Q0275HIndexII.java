@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 // https://leetcode.com/problems/h-index-ii/
-public class Q275HIndexII {
+public class Q0275HIndexII {
   public int hIndex(int[] citations) {
     int len = citations.length;
     int left = 0, right = len - 1;

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 // https://leetcode.com/problems/different-ways-to-add-parentheses/
-public class Q241DifferentWaysToAddParentheses {
+public class Q0241DifferentWaysToAddParentheses {
   Map<String, List<Integer>> map = new HashMap<>();
 
   public List<Integer> diffWaysToCompute(String input) {

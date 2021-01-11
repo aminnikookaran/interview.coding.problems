@@ -3,7 +3,7 @@ package leetcode.medium;
 import leetcode.TreeNode;
 
 // https://leetcode.com/problems/count-complete-tree-nodes/
-public class Q222CountCompleteTreeNodes {
+public class Q0222CountCompleteTreeNodes {
   public int countNodes1(TreeNode root) {
     int h = height(root);
     if (h < 0) return 0;

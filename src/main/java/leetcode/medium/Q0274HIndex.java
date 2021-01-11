@@ -3,7 +3,7 @@ package leetcode.medium;
 import java.util.Arrays;
 
 // https://leetcode.com/problems/h-index/
-public class Q274HIndex {
+public class Q0274HIndex {
   public int hIndex1(int[] citations) {
     int n = citations.length;
     int[] buckets = new int[n + 1];

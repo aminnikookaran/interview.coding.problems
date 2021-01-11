@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 // https://leetcode.com/problems/ugly-number-ii/
-public class Q264UglyNumberII {
+public class Q0264UglyNumberII {
   public int nthUglyNumber(int n) {
     int[] ugly = new int[n];
     ugly[0] = 1;

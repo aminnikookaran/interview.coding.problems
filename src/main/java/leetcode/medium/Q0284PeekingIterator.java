@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 // https://leetcode.com/problems/peeking-iterator/
-public class Q284PeekingIterator {
+public class Q0284PeekingIterator {
   class PeekingIterator implements Iterator<Integer> {
     Integer next;
     Iterator<Integer> iterator;

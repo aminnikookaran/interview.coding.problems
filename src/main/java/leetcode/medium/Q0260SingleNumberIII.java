@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 // https://leetcode.com/problems/single-number-iii/
-public class Q260SingleNumberIII {
+public class Q0260SingleNumberIII {
   public int[] singleNumber(int[] nums) {
     int diff = 0;
     for (int num : nums) diff ^= num;

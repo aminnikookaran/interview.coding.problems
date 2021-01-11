@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 // https://leetcode.com/problems/majority-element-ii/
-public class Q229MajorityElementII {
+public class Q0229MajorityElementII {
   public List<Integer> majorityElement1(int[] nums) {
     List<Integer> result = new ArrayList<>();
     if (nums == null || nums.length == 0) return result;

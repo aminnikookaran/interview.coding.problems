@@ -3,7 +3,7 @@ package leetcode.medium;
 import leetcode.TreeNode;
 
 // https://leetcode.com/problems/binary-tree-upside-down/
-public class Q156BinaryTreeUpsideDown {
+public class Q0156BinaryTreeUpsideDown {
   public TreeNode upsideDownBinaryTree1(TreeNode root) {
     if (root == null || root.left == null) return root;
 

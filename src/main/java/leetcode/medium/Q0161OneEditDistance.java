@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 // https://leetcode.com/problems/one-edit-distance/
-public class Q161OneEditDistance {
+public class Q0161OneEditDistance {
   public boolean isOneEditDistance(String s, String t) {
     if (s == null || t == null) return false;
     int m = s.length(), n = t.length();

@@ -4,8 +4,7 @@ package leetcode.medium;
 public class Q0294FlipGameII {
   public boolean canWin(String s) {
     if (s == null || s.length() == 0) return false;
-    char[] arr = s.toCharArray();
-    return canWin(arr);
+    return canWin(s.toCharArray());
   }
 
   private boolean canWin(char[] arr) {

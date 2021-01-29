@@ -32,6 +32,8 @@ public class Q0416PartitionEqualSubsetSum {
     boolean[] dp = new boolean[sum + 1];
     dp[0] = true;
 
+    // go from sum to one to use values from previous iteration or not count each number several
+    // times.
     for (int num : nums) for (int i = sum; i >= num; i--) dp[i] = dp[i] || dp[i - num];
 
     return dp[sum];

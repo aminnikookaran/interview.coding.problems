@@ -17,6 +17,7 @@ public class Q0518CoinChange2 {
   public int change2(int amount, int[] coins) {
     int[] dp = new int[amount + 1];
     dp[0] = 1;
+    // if outer loop is amount then various coin combinations are counted several times.
     for (int coin : coins) for (int i = coin; i <= amount; i++) dp[i] += dp[i - coin];
     return dp[amount];
   }

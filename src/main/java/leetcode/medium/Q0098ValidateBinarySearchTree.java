@@ -20,13 +20,12 @@ public class Q0098ValidateBinarySearchTree {
     return isValidBST2(root, null, null);
   }
 
-  public boolean isValidBST2(TreeNode node, Integer lower, Integer upper) {
-    if (node == null) return true;
-    int val = node.val;
-    if (lower != null && val <= lower) return false;
-    if (upper != null && val >= upper) return false;
-    if (!isValidBST2(node.right, val, upper)) return false;
-    if (!isValidBST2(node.left, lower, val)) return false;
+  public boolean isValidBST2(TreeNode root, Integer lower, Integer upper) {
+    if (root == null) return true;
+    if (lower != null && root.val <= lower) return false;
+    if (upper != null && root.val >= upper) return false;
+    if (!isValidBST2(root.right, root.val, upper)) return false;
+    if (!isValidBST2(root.left, lower, root.val)) return false;
     return true;
   }
 

@@ -31,13 +31,13 @@ public class Q0046Permutations {
 
   public List<List<Integer>> permute2(int[] num) {
     List<List<Integer>> result = new ArrayList<>();
-    result.add(new ArrayList<Integer>());
+    result.add(new ArrayList<>());
     for (int i = 0; i < num.length; i++) {
       List<List<Integer>> current = new ArrayList<>();
       for (List<Integer> l : result) {
         for (int j = 0; j < l.size() + 1; j++) {
           l.add(j, num[i]);
-          List<Integer> temp = new ArrayList<Integer>(l);
+          List<Integer> temp = new ArrayList<>(l);
           current.add(temp);
           l.remove(j);
         }

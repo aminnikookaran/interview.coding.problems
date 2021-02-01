@@ -16,8 +16,7 @@ public class Q0113PathSumII {
   void pathSum1(TreeNode root, int sum, List<Integer> sol, List<List<Integer>> res) {
     if (root == null) return;
     sol.add(root.val);
-    if (root.left == null && root.right == null && sum == root.val)
-      res.add(new ArrayList<Integer>(sol));
+    if (root.left == null && root.right == null && sum == root.val) res.add(new ArrayList<>(sol));
     else {
       pathSum1(root.left, sum - root.val, sol, res);
       pathSum1(root.right, sum - root.val, sol, res);
@@ -56,7 +55,7 @@ public class Q0113PathSumII {
       }
       // check leaf
       if (curr.left == null && curr.right == null && pathSum == sum) {
-        list.add(new ArrayList<Integer>(path));
+        list.add(new ArrayList<>(path));
         // why do we need new ArrayList here?
         // if we are using the same path variable path
         // path will be cleared after the traversal

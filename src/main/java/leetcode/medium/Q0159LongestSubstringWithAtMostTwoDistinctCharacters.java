@@ -1,12 +1,13 @@
 package leetcode.medium;
 
 import java.util.HashMap;
+import java.util.Map;
 
 // https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
 public class Q0159LongestSubstringWithAtMostTwoDistinctCharacters {
   public int lengthOfLongestSubstringTwoDistinct(String s) {
     int max = 0;
-    HashMap<Character, Integer> map = new HashMap<>();
+    Map<Character, Integer> map = new HashMap<>();
     int i = 0;
 
     for (int j = 0; j < s.length(); j++) {
@@ -32,7 +33,7 @@ public class Q0159LongestSubstringWithAtMostTwoDistinctCharacters {
   public int lengthOfLongestSubstringKDistinct(String s, int k) {
     int max = 0;
     int i = 0;
-    HashMap<Character, Integer> map = new HashMap<>();
+    Map<Character, Integer> map = new HashMap<>();
 
     for (int j = 0; j < s.length(); j++) {
       char c = s.charAt(j);

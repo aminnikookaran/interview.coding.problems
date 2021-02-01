@@ -2,7 +2,7 @@ package leetcode.medium;
 
 // https://leetcode.com/problems/rotate-array/
 public class Q0189RotateArray {
-  public void rotate(int[] nums, int k) {
+  public void rotate1(int[] nums, int k) {
     int startIndex = -1, currIndex = -1, pre = 0;
     for (int i = 0; i < nums.length; ++i) {
       if (startIndex == currIndex) {

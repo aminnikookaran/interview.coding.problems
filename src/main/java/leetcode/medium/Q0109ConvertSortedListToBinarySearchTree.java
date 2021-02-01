@@ -39,7 +39,7 @@ public class Q0109ConvertSortedListToBinarySearchTree {
     return node;
   }
 
-  private List<Integer> values = new ArrayList<Integer>();
+  private List<Integer> values = new ArrayList<>();
 
   private void mapListToValues(ListNode head) {
     while (head != null) {

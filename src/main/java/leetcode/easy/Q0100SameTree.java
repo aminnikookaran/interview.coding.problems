@@ -20,30 +20,28 @@ public class Q0100SameTree {
   }
 
   public boolean isSameTree2(TreeNode p, TreeNode q) {
-    if (p == null && q == null) return true;
     if (!check(p, q)) return false;
 
     Deque<TreeNode> deqP = new ArrayDeque<>();
     Deque<TreeNode> deqQ = new ArrayDeque<>();
-    deqP.addLast(p);
-    deqQ.addLast(q);
+    deqP.add(p);
+    deqQ.add(q);
 
     while (!deqP.isEmpty()) {
-      p = deqP.removeFirst();
-      q = deqQ.removeFirst();
+      p = deqP.poll();
+      q = deqQ.poll();
 
       if (!check(p, q)) return false;
       if (p != null) {
-        // in Java nulls are not allowed in Deque
         if (!check(p.left, q.left)) return false;
         if (p.left != null) {
-          deqP.addLast(p.left);
-          deqQ.addLast(q.left);
+          deqP.add(p.left);
+          deqQ.add(q.left);
         }
         if (!check(p.right, q.right)) return false;
         if (p.right != null) {
-          deqP.addLast(p.right);
-          deqQ.addLast(q.right);
+          deqP.add(p.right);
+          deqQ.add(q.right);
         }
       }
     }

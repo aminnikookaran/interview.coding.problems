@@ -25,7 +25,6 @@ public class Q0896MonotonicArray {
         store = c;
       }
     }
-
     return true;
   }
 
@@ -36,7 +35,6 @@ public class Q0896MonotonicArray {
       if (A[i] > A[i + 1]) increasing = false;
       if (A[i] < A[i + 1]) decreasing = false;
     }
-
     return increasing || decreasing;
   }
 }

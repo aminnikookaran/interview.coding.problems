@@ -31,7 +31,7 @@ public class Q0074SearchA2DMatrix {
     int start = 0;
     int end = m * n - 1;
     while (start <= end) {
-      int mid = (start + end) / 2;
+      int mid = start + (end - start) / 2;
       int midX = mid / n;
       int midY = mid % n;
       if (matrix[midX][midY] == target) return true;

@@ -1,7 +1,7 @@
 package leetcode.medium;
 
 // https://leetcode.com/problems/shortest-word-distance-iii/
-public class Q245ShortestWordDistanceIII {
+public class Q0245ShortestWordDistanceIII {
   public int shortestWordDistance1(String[] words, String word1, String word2) {
     if (words == null || words.length < 1 || word1 == null || word2 == null) return 0;
     int m = -1;

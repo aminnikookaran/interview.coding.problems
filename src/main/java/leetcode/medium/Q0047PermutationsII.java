@@ -25,13 +25,13 @@ public class Q0047PermutationsII {
       Integer N,
       Map<Integer, Integer> counter,
       List<List<Integer>> results) {
-    if (comb.size() == N) results.add(new ArrayList<Integer>(comb));
+    if (comb.size() == N) results.add(new ArrayList<>(comb));
     else
       for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
         Integer num = entry.getKey();
         Integer count = entry.getValue();
         if (count == 0) continue;
-        comb.addLast(num);
+        comb.add(num);
         counter.put(num, count - 1);
         backtrack(comb, N, counter, results);
         comb.removeLast();

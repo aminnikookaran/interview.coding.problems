@@ -50,7 +50,7 @@ public class Q0290WordPattern {
     return true;
   }
 
-  public boolean wordPattern(String pattern, String s) {
+  public boolean wordPattern3(String pattern, String s) {
     Map<String, Integer> map_index = new HashMap<>();
     String[] words = s.split(" ");
     if (words.length != pattern.length()) return false;

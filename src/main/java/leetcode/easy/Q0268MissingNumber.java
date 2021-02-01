@@ -24,7 +24,7 @@ public class Q0268MissingNumber {
   }
 
   public int missingNumber3(int[] nums) {
-    Set<Integer> numSet = new HashSet<Integer>();
+    Set<Integer> numSet = new HashSet<>();
     for (int num : nums) numSet.add(num);
     int expectedNumCount = nums.length + 1;
     for (int number = 0; number < expectedNumCount; number++)

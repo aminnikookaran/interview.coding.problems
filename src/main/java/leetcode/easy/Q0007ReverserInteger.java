@@ -2,7 +2,7 @@ package leetcode.easy;
 
 // https://leetcode.com/problems/reverse-integer/
 public class Q0007ReverserInteger {
-  public static int reverse1(int x) {
+  public int reverse1(int x) {
     boolean isNegative = false;
     if (x < 0) {
       isNegative = true;
@@ -34,9 +34,5 @@ public class Q0007ReverserInteger {
       rev = rev * 10 + pop;
     }
     return rev;
-  }
-
-  public static void main(String[] args) {
-    System.out.println(reverse1(123));
   }
 }

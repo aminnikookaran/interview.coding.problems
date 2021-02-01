@@ -37,9 +37,7 @@ public class Q0027RemoveElement {
         nums[i] = nums[n - 1];
         // reduce array size by one
         n--;
-      } else {
-        i++;
-      }
+      } else i++;
     }
     return n;
   }

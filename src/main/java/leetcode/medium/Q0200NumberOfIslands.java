@@ -112,16 +112,4 @@ public class Q0200NumberOfIslands {
     while (arr[i] != i) i = arr[arr[i]];
     return i;
   }
-
-  public static void main(String[] args) {
-    Q0200NumberOfIslands s = new Q0200NumberOfIslands();
-    System.out.println(
-        s.numIslands1(
-            new char[][] {
-              {'1', '1', '0', '0', '0'},
-              {'1', '1', '0', '0', '0'},
-              {'0', '0', '1', '0', '0'},
-              {'0', '0', '0', '1', '1'}
-            }));
-  }
 }

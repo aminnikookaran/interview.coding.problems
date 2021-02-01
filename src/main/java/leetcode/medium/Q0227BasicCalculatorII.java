@@ -14,7 +14,8 @@ public class Q0227BasicCalculatorII {
       char currentChar = s.charAt(i);
       if (Character.isDigit(currentChar))
         currentNumber = (currentNumber * 10) + (currentChar - '0');
-      if (!Character.isDigit(currentChar) && !Character.isWhitespace(currentChar) || i == len - 1) {
+      if (i == len - 1
+          || (!Character.isDigit(currentChar) && !Character.isWhitespace(currentChar))) {
         if (operation == '-') stack.push(-currentNumber);
         else if (operation == '+') stack.push(currentNumber);
         else if (operation == '*') stack.push(stack.pop() * currentNumber);
@@ -53,10 +54,5 @@ public class Q0227BasicCalculatorII {
     }
     result += lastNumber;
     return result;
-  }
-
-  public static void main(String[] args) {
-    Q0227BasicCalculatorII q = new Q0227BasicCalculatorII();
-    System.out.println(q.calculate2("-3*3"));
   }
 }

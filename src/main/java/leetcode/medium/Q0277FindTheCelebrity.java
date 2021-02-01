@@ -35,7 +35,7 @@ public class Q0277FindTheCelebrity {
 
       int id = findCelebrity(n - 1);
 
-      if (id == 1) return n - 1;
+      if (id == -1) return n - 1;
       if (knows(id, n - 1) && !knows(n - 1, id)) return n - 1;
       else if (!knows(id, n - 1) && knows(n - 1, id)) return id;
       return -1;

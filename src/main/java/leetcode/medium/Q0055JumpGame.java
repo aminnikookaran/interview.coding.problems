@@ -26,16 +26,11 @@ public class Q0055JumpGame {
     return false;
   }
 
-  public boolean canJumpFromPosition1(int position, int[] nums) {
-    if (position == nums.length - 1) return true;
-    int furthestJump = Math.min(position + nums[position], nums.length - 1);
-    for (int nextPosition = furthestJump; nextPosition > position; nextPosition--)
-      if (canJumpFromPosition1(nextPosition, nums)) return true;
-    return false;
-  }
-
-  public boolean canJump2(int[] nums) {
-    return canJumpFromPosition1(0, nums);
+  public boolean canJump3(int[] nums) {
+    memo = new Index[nums.length];
+    for (int i = 0; i < memo.length; i++) memo[i] = Index.UNKNOWN;
+    memo[memo.length - 1] = Index.GOOD;
+    return canJumpFromPosition2(0, nums);
   }
 
   enum Index {
@@ -56,13 +51,6 @@ public class Q0055JumpGame {
       }
     memo[position] = Index.BAD;
     return false;
-  }
-
-  public boolean canJump3(int[] nums) {
-    memo = new Index[nums.length];
-    for (int i = 0; i < memo.length; i++) memo[i] = Index.UNKNOWN;
-    memo[memo.length - 1] = Index.GOOD;
-    return canJumpFromPosition2(0, nums);
   }
 
   public boolean canJump4(int[] nums) {

@@ -28,7 +28,7 @@ public class Q0350IntersectionOfTwoArraysII {
   public int[] intersect(int[] nums1, int[] nums2) {
     Arrays.sort(nums1);
     Arrays.sort(nums2);
-    List<Integer> list = new ArrayList<Integer>();
+    List<Integer> list = new ArrayList<>();
     int p1 = 0, p2 = 0;
     while (p1 < nums1.length && p2 < nums2.length) {
       if (nums1[p1] < nums2[p2]) p1++;

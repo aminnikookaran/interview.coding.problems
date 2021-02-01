@@ -10,7 +10,7 @@ import leetcode.TreeNode;
 
 // https://leetcode.com/problems/symmetric-tree/
 public class Q0101SymmetricTree {
-  public static boolean isSymmetric1(TreeNode root) {
+  public boolean isSymmetric1(TreeNode root) {
     if (root == null) return true;
     Deque<TreeNode> queue = new ArrayDeque<>();
     List<TreeNode> list = new ArrayList<>();
@@ -32,17 +32,17 @@ public class Q0101SymmetricTree {
     return true;
   }
 
-  public static boolean isSymmetric2(TreeNode root) {
-    return isMirror(root, root);
+  public boolean isSymmetric2(TreeNode root) {
+    return isSymmetric2(root, root);
   }
 
-  public static boolean isMirror(TreeNode t1, TreeNode t2) {
+  public boolean isSymmetric2(TreeNode t1, TreeNode t2) {
     if (t1 == null && t2 == null) return true;
     if (t1 == null || t2 == null) return false;
-    return (t1.val == t2.val) && isMirror(t1.right, t2.left) && isMirror(t1.left, t2.right);
+    return (t1.val == t2.val) && isSymmetric2(t1.right, t2.left) && isSymmetric2(t1.left, t2.right);
   }
 
-  public static boolean isSymmetric3(TreeNode root) {
+  public boolean isSymmetric3(TreeNode root) {
     Queue<TreeNode> q = new LinkedList<>();
     q.add(root);
     q.add(root);
@@ -58,22 +58,5 @@ public class Q0101SymmetricTree {
       q.add(t2.left);
     }
     return true;
-  }
-
-  public static void main(String[] args) {
-    TreeNode node =
-        new TreeNode(
-            1,
-            new TreeNode(
-                2,
-                new TreeNode(3, new TreeNode(5), new TreeNode(6)),
-                new TreeNode(4, new TreeNode(7), new TreeNode(8))),
-            new TreeNode(
-                2,
-                new TreeNode(4, new TreeNode(8), new TreeNode(7)),
-                new TreeNode(3, new TreeNode(6), new TreeNode(5))));
-    System.out.println(isSymmetric1(node));
-    System.out.println(isSymmetric2(node));
-    System.out.println(isSymmetric3(node));
   }
 }

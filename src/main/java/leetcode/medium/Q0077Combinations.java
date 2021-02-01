@@ -7,12 +7,12 @@ import java.util.List;
 public class Q0077Combinations {
   public List<List<Integer>> combine1(int n, int k) {
     List<List<Integer>> combs = new ArrayList<>();
-    combine1(combs, new ArrayList<Integer>(), 1, n, k);
+    combine1(combs, new ArrayList<>(), 1, n, k);
     return combs;
   }
 
   public void combine1(List<List<Integer>> combs, List<Integer> comb, int start, int n, int k) {
-    if (k == 0) combs.add(new ArrayList<Integer>(comb));
+    if (k == 0) combs.add(new ArrayList<>(comb));
     else
       for (int i = start; i <= n - k + 1; i++) {
         comb.add(i);

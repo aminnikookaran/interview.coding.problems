@@ -1,7 +1,7 @@
 package leetcode.easy;
 
 // https://leetcode.com/problems/fibonacci-number/
-public class Q509FibonacciNumber {
+public class Q0509FibonacciNumber {
   public int fib1(int N) {
     if (N <= 1) return N;
     return memoize1(N);

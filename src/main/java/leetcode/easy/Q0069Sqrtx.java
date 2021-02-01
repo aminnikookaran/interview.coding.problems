@@ -6,7 +6,7 @@ public class Q0069Sqrtx {
     long low = 0;
     long high = x;
     while (low <= high) {
-      long mid = (low + high) / 2;
+      long mid = low + (high - low) / 2;
       long y = mid * mid;
       if (y == x) return (int) mid;
       if (y < x) low = mid + 1;

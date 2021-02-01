@@ -34,7 +34,7 @@ public class Q0169MajorityElement {
     if (lo == hi) return nums[lo];
 
     // recurse on left and right halves of this slice.
-    int mid = (hi - lo) / 2 + lo;
+    int mid = lo + (hi - lo) / 2;
     int left = majorityElementRec(nums, lo, mid);
     int right = majorityElementRec(nums, mid + 1, hi);
 

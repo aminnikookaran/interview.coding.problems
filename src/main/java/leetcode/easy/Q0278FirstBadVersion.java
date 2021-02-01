@@ -2,7 +2,6 @@ package leetcode.easy;
 
 // https://leetcode.com/problems/first-bad-version/
 public class Q0278FirstBadVersion {
-
   private boolean isBadVersion(int mid) {
     return false;
   }

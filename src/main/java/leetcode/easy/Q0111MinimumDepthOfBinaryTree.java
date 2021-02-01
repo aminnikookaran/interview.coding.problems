@@ -33,7 +33,7 @@ public class Q0111MinimumDepthOfBinaryTree {
     return 0;
   }
 
-  public int minDept3(TreeNode root) {
+  public int minDepth3(TreeNode root) {
     if (root == null) return 0;
     LinkedList<TreeNode> nodes = new LinkedList<TreeNode>();
     LinkedList<Integer> counts = new LinkedList<Integer>();

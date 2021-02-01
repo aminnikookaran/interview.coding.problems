@@ -18,17 +18,6 @@ public class Q0014LongestCommonPrefix {
   }
 
   public String longestCommonPrefix2(String[] strs) {
-    if (strs.length == 0) return "";
-    String prefix = strs[0];
-    for (int i = 1; i < strs.length; i++)
-      while (strs[i].indexOf(prefix) != 0) {
-        prefix = prefix.substring(0, prefix.length() - 1);
-        if (prefix.isEmpty()) return "";
-      }
-    return prefix;
-  }
-
-  public String longestCommonPrefix3(String[] strs) {
     if (strs == null || strs.length == 0) return "";
     for (int i = 0; i < strs[0].length(); i++) {
       char c = strs[0].charAt(i);
@@ -38,17 +27,17 @@ public class Q0014LongestCommonPrefix {
     return strs[0];
   }
 
-  public String longestCommonPrefix4(String[] strs) {
+  public String longestCommonPrefix3(String[] strs) {
     if (strs == null || strs.length == 0) return "";
-    return longestCommonPrefix(strs, 0, strs.length - 1);
+    return longestCommonPrefix3(strs, 0, strs.length - 1);
   }
 
-  private String longestCommonPrefix(String[] strs, int l, int r) {
+  private String longestCommonPrefix3(String[] strs, int l, int r) {
     if (l == r) return strs[l];
     else {
       int mid = (l + r) / 2;
-      String lcpLeft = longestCommonPrefix(strs, l, mid);
-      String lcpRight = longestCommonPrefix(strs, mid + 1, r);
+      String lcpLeft = longestCommonPrefix3(strs, l, mid);
+      String lcpRight = longestCommonPrefix3(strs, mid + 1, r);
       return commonPrefix(lcpLeft, lcpRight);
     }
   }
@@ -60,7 +49,7 @@ public class Q0014LongestCommonPrefix {
     return left.substring(0, min);
   }
 
-  public String longestCommonPrefix5(String[] strs) {
+  public String longestCommonPrefix4(String[] strs) {
     if (strs == null || strs.length == 0) return "";
     int minLen = Integer.MAX_VALUE;
     for (String str : strs) minLen = Math.min(minLen, str.length());
@@ -80,13 +69,11 @@ public class Q0014LongestCommonPrefix {
     return true;
   }
 
-  public String longestCommonPrefix(String q, String[] strs) {
+  public String longestCommonPrefix5(String q, String[] strs) {
     if (strs == null || strs.length == 0) return "";
     if (strs.length == 1) return strs[0];
     Trie trie = new Trie();
-    for (int i = 1; i < strs.length; i++) {
-      trie.insert(strs[i]);
-    }
+    for (int i = 1; i < strs.length; i++) trie.insert(strs[i]);
     return trie.searchLongestPrefix(q);
   }
 

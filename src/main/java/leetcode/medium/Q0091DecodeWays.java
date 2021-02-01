@@ -1,55 +1,47 @@
 package leetcode.medium;
 
-import java.util.Arrays;
-
 // https://leetcode.com/problems/decode-ways/
 public class Q0091DecodeWays {
   public int numDecodings1(String s) {
     if (s == null || s.length() == 0) return 0;
-    int[] ways = new int[s.length()];
-    Arrays.fill(ways, -1);
-    return numDecodings1(s, 0, ways);
+    Integer[] mem = new Integer[s.length()];
+    return numDecodings1(0, s, mem);
   }
 
-  public int numDecodings1(String s, int index, int[] ways) {
-    if (index >= s.length()) return 1;
-    if (ways[index] == -1) {
-      int count = 0;
-      if (s.charAt(index) != '0' && s.charAt(index) <= '9') {
-        count = numDecodings1(s, index + 1, ways);
-        if (index + 1 < s.length()
-            && ((s.charAt(index) == '1' && s.charAt(index + 1) >= '0' && s.charAt(index + 1) <= '9')
-                || (s.charAt(index) == '2'
-                    && s.charAt(index + 1) >= '0'
-                    && s.charAt(index + 1) <= '6'))) {
-          count += numDecodings1(s, index + 2, ways);
-        }
-      }
-      ways[index] = count;
-    }
-    return ways[index];
+  private int numDecodings1(int p, String s, Integer[] mem) {
+    if (p == s.length()) return 1;
+    if (s.charAt(p) == '0') return 0;
+    if (mem[p] != null) return mem[p];
+    int res = numDecodings1(p + 1, s, mem);
+    if (p < s.length() - 1 && (s.charAt(p) == '1' || s.charAt(p) == '2' && s.charAt(p + 1) < '7'))
+      res += numDecodings1(p + 2, s, mem);
+    return mem[p] = res;
   }
 
   public int numDecodings2(String s) {
-    int[] dp = new int[s.length() + 1];
-    dp[0] = 1;
-    if (s.charAt(0) == '0') return 0;
-    dp[1] = 1;
-    for (int i = 1; i < s.length(); i++) {
-      char c = s.charAt(i);
-      char p = s.charAt(i - 1);
-      if (c == '0' && (p == '0' || p > '2')) return 0;
+    if (s == null || s.length() == 0) return 0;
+    int n = s.length();
+    int[] dp = new int[n + 1];
+    dp[n] = 1;
+    for (int i = n - 1; i >= 0; i--)
+      if (s.charAt(i) != '0') {
+        dp[i] = dp[i + 1];
+        if (i < n - 1 && (s.charAt(i) == '1' || s.charAt(i) == '2' && s.charAt(i + 1) < '7'))
+          dp[i] += dp[i + 2];
+      }
+    return dp[0];
+  }
 
-      if (p == '0') dp[i + 1] = dp[i];
-      else if (p == '1') {
-        if (c == '0') dp[i + 1] = dp[i - 1];
-        else dp[i + 1] = dp[i - 1] + dp[i];
-      } else if (p == '2') {
-        if (c == '0') dp[i + 1] = dp[i - 1];
-        else if (c <= '6') dp[i + 1] = dp[i] + dp[i - 1];
-        else dp[i + 1] = dp[i];
-      } else dp[i + 1] = dp[i];
+  public int numDecodings3(String s) {
+    if (s == null || s.length() == 0) return 0;
+    int dp1 = 1, dp2 = 0, n = s.length();
+    for (int i = n - 1; i >= 0; i--) {
+      int dp = s.charAt(i) == '0' ? 0 : dp1;
+      if (i < n - 1 && (s.charAt(i) == '1' || s.charAt(i) == '2' && s.charAt(i + 1) < '7'))
+        dp += dp2;
+      dp2 = dp1;
+      dp1 = dp;
     }
-    return dp[s.length()];
+    return dp1;
   }
 }

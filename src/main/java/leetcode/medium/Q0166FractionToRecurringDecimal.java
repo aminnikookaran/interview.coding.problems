@@ -36,9 +36,4 @@ public class Q0166FractionToRecurringDecimal {
     }
     return stringBuilder.toString();
   }
-
-  public static void main(String[] args) {
-    Q0166FractionToRecurringDecimal s = new Q0166FractionToRecurringDecimal();
-    System.out.println(s.fractionToDecimal(-50, 8));
-  }
 }

@@ -27,9 +27,9 @@ public class Q0106ConstructBinaryTreeFromInorderAndPostorderTraversal {
       }
     }
     // build right and left subtrees. Again, scanning from the end to find the sections.
-    root.right = buildTree1(inorder, inStart, rIndex + 1, postorder, postStart - 1);
     root.left =
-        buildTree1(inorder, rIndex - 1, inEnd, postorder, postStart - (inStart - rIndex) - 1);
+        buildTree1(inorder, inStart, rIndex - 1, postorder, postStart + rIndex - inStart - 1);
+    root.right = buildTree1(inorder, rIndex + 1, inEnd, postorder, postStart + rIndex - inStart);
     return root;
   }
 

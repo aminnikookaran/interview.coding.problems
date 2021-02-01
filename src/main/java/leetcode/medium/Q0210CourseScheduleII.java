@@ -60,9 +60,9 @@ public class Q0210CourseScheduleII {
 
   private void init(int numCourses) {
     this.isPossible = true;
-    this.color = new HashMap<Integer, Integer>();
-    this.adjList = new HashMap<Integer, List<Integer>>();
-    this.topologicalOrder = new ArrayList<Integer>();
+    this.color = new HashMap<>();
+    this.adjList = new HashMap<>();
+    this.topologicalOrder = new ArrayList<>();
 
     // By default all vertces are WHITE
     for (int i = 0; i < numCourses; i++) this.color.put(i, WHITE);
@@ -76,7 +76,7 @@ public class Q0210CourseScheduleII {
     this.color.put(node, GRAY);
 
     // Traverse on neighboring vertices
-    for (Integer neighbor : this.adjList.getOrDefault(node, new ArrayList<Integer>()))
+    for (Integer neighbor : this.adjList.getOrDefault(node, new ArrayList<>()))
       if (this.color.get(neighbor) == WHITE) this.dfs(neighbor);
       else if (this.color.get(neighbor) == GRAY)
         this.isPossible = false; // An edge to a GRAY vertex represents a cycle
@@ -93,7 +93,7 @@ public class Q0210CourseScheduleII {
     for (int i = 0; i < prerequisites.length; i++) {
       int dest = prerequisites[i][0];
       int src = prerequisites[i][1];
-      List<Integer> lst = adjList.getOrDefault(src, new ArrayList<Integer>());
+      List<Integer> lst = adjList.getOrDefault(src, new ArrayList<>());
       lst.add(dest);
       adjList.put(src, lst);
     }
@@ -111,7 +111,7 @@ public class Q0210CourseScheduleII {
   }
 
   public int[] findOrder3(int numCourses, int[][] prerequisites) {
-    Map<Integer, List<Integer>> adjList = new HashMap<Integer, List<Integer>>();
+    Map<Integer, List<Integer>> adjList = new HashMap<>();
     int[] indegree = new int[numCourses];
     int[] topologicalOrder = new int[numCourses];
 
@@ -119,7 +119,7 @@ public class Q0210CourseScheduleII {
     for (int i = 0; i < prerequisites.length; i++) {
       int dest = prerequisites[i][0];
       int src = prerequisites[i][1];
-      List<Integer> lst = adjList.getOrDefault(src, new ArrayList<Integer>());
+      List<Integer> lst = adjList.getOrDefault(src, new ArrayList<>());
       lst.add(dest);
       adjList.put(src, lst);
 
@@ -128,7 +128,7 @@ public class Q0210CourseScheduleII {
     }
 
     // Add all vertices with 0 in-degree to the queue
-    Queue<Integer> q = new LinkedList<Integer>();
+    Queue<Integer> q = new LinkedList<>();
     for (int i = 0; i < numCourses; i++) if (indegree[i] == 0) q.add(i);
 
     int i = 0;

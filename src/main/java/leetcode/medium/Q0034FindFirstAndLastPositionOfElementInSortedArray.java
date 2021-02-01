@@ -3,25 +3,22 @@ package leetcode.medium;
 // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 public class Q0034FindFirstAndLastPositionOfElementInSortedArray {
   public int[] searchRange1(int[] nums, int target) {
-    int i = 0, j = nums.length - 1;
-    while (i < j) {
-      int mid = (i + j) / 2;
-      if (nums[mid] > target) j = mid - 1;
-      else if (nums[mid] < target) i = mid + 1;
-      else j = mid;
+    int left = 0, right = nums.length - 1;
+    while (left < right) {
+      int mid = left + (right - left) / 2;
+      if (nums[mid] < target) left = mid + 1;
+      else right = mid;
     }
-    if (j < 0 || nums[j] != target) return new int[] {-1, -1};
-    int start = j;
+    if (nums[left] != target) return new int[] {-1, -1};
+    int start = left;
 
-    i = 0;
-    j = nums.length - 1;
-    while (i < j) {
-      int mid = (i + j + 1) / 2;
-      if (nums[mid] > target) j = mid - 1;
-      else if (nums[mid] < target) i = mid + 1;
-      else i = mid;
+    right = nums.length - 1;
+    while (left < right) {
+      int mid = left + (right - left) / 2 + 1;
+      if (nums[mid] > target) right = mid - 1;
+      else left = mid;
     }
-    int end = i;
+    int end = right;
 
     return new int[] {start, end};
   }

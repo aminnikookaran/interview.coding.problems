@@ -29,7 +29,7 @@ public class Q0202HappyNumber {
     return squareSum;
   }
 
-  public boolean isHappynumber2(int n) {
+  public boolean isHappy2(int n) {
     int slow, fast;
     slow = fast = n;
     do {
@@ -39,7 +39,7 @@ public class Q0202HappyNumber {
     return (slow == 1);
   }
 
-  public boolean isHappynumber(int n) {
+  public boolean isHappy3(int n) {
     if (n == 1 || n == 7) return true;
     int sum = n, x = n;
     while (sum > 9) {

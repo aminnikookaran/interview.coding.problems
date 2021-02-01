@@ -89,7 +89,7 @@ public class Q0017LetterCombinationsOfAPhoneNumber {
         }
       };
 
-  List<String> output = new ArrayList<String>();
+  List<String> output = new ArrayList<>();
 
   public void backtrack(String combination, String next_digits) {
     if (next_digits.length() == 0) output.add(combination);

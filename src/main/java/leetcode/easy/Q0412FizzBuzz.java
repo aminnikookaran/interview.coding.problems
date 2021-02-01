@@ -21,7 +21,7 @@ public class Q0412FizzBuzz {
   }
 
   public List<String> fizzBuzz2(int n) {
-    List<String> ans = new ArrayList<String>();
+    List<String> ans = new ArrayList<>();
     for (int num = 1; num <= n; num++) {
       boolean divisibleBy3 = (num % 3 == 0);
       boolean divisibleBy5 = (num % 5 == 0);
@@ -35,7 +35,7 @@ public class Q0412FizzBuzz {
   }
 
   public List<String> fizzBuzz3(int n) {
-    List<String> ans = new ArrayList<String>();
+    List<String> ans = new ArrayList<>();
     Map<Integer, String> fizzBizzDict = new HashMap<>();
     fizzBizzDict.put(3, "Fizz");
     fizzBizzDict.put(5, "Buzz");

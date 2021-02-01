@@ -56,12 +56,11 @@ public class Q0005LongestPalindromicSubstring {
   }
 
   private int expandAroundCenter(String s, int left, int right) {
-    int L = left, R = right;
-    while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
-      L--;
-      R++;
+    while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+      left--;
+      right++;
     }
-    return R - L - 1;
+    return right - left - 1;
   }
 
   // https://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-1

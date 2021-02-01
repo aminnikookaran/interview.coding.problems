@@ -28,7 +28,7 @@ public class Q0040CombinationSumII {
       int curr,
       List<int[]> counter,
       List<List<Integer>> results) {
-    if (remain == 0) results.add(new ArrayList<Integer>(comb));
+    if (remain == 0) results.add(new ArrayList<>(comb));
     else
       for (int nextCurr = curr; nextCurr < counter.size(); ++nextCurr) {
         int[] entry = counter.get(nextCurr);

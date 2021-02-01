@@ -39,7 +39,7 @@ public class Q0078Subsets {
 
   public List<List<Integer>> subsets2(int[] nums) {
     n = nums.length;
-    for (k = 0; k < n + 1; ++k) backtrack(0, new ArrayList<Integer>(), nums);
+    for (k = 0; k < n + 1; ++k) backtrack(0, new ArrayList<>(), nums);
     return output;
   }
 
@@ -47,7 +47,7 @@ public class Q0078Subsets {
     List<List<Integer>> output = new ArrayList<>();
     int n = nums.length;
 
-    for (int i = (int) Math.pow(2, n); i < (int) Math.pow(2, n + 1); ++i) {
+    for (int i = (int) 0; i < (int) Math.pow(2, n); ++i) {
       // generate bitmask, from 0..00 to 1..11
       String bitmask = Integer.toBinaryString(i).substring(1);
 
@@ -57,5 +57,20 @@ public class Q0078Subsets {
       output.add(curr);
     }
     return output;
+  }
+
+  public List<List<Integer>> subsets4(int[] nums) {
+    List<List<Integer>> list = new ArrayList<>();
+    backtrack(list, new ArrayList<>(), nums, 0);
+    return list;
+  }
+
+  private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int start) {
+    list.add(new ArrayList<>(tempList));
+    for (int i = start; i < nums.length; i++) {
+      tempList.add(nums[i]);
+      backtrack(list, tempList, nums, i + 1);
+      tempList.remove(tempList.size() - 1);
+    }
   }
 }

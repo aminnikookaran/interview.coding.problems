@@ -12,36 +12,37 @@ import java.util.Set;
 // https://leetcode.com/problems/course-schedule/
 public class Q0207CourseSchedule {
   public boolean canFinish1(int numCourses, int[][] prerequisites) {
-    Map<Integer, Set<Integer>> map1 = new HashMap<>();
-    Map<Integer, Set<Integer>> map2 = new HashMap<>();
+    Map<Integer, Set<Integer>> requiresMap = new HashMap<>();
+    Map<Integer, Set<Integer>> requiredMap = new HashMap<>();
     for (int i = 0; i < prerequisites.length; i++) {
-      if (!map1.containsKey(prerequisites[i][0])) map1.put(prerequisites[i][0], new HashSet<>());
-      map1.get(prerequisites[i][0]).add(prerequisites[i][1]);
-      if (!map2.containsKey(prerequisites[i][1])) map2.put(prerequisites[i][1], new HashSet<>());
-      map2.get(prerequisites[i][1]).add(prerequisites[i][0]);
+      if (!requiresMap.containsKey(prerequisites[i][0]))
+        requiresMap.put(prerequisites[i][0], new HashSet<>());
+      requiresMap.get(prerequisites[i][0]).add(prerequisites[i][1]);
+      if (!requiredMap.containsKey(prerequisites[i][1]))
+        requiredMap.put(prerequisites[i][1], new HashSet<>());
+      requiredMap.get(prerequisites[i][1]).add(prerequisites[i][0]);
     }
 
     boolean canTakeCourse = true;
     while (canTakeCourse) {
       canTakeCourse = false;
-      Iterator<Map.Entry<Integer, Set<Integer>>> iterator = map2.entrySet().iterator();
+      Iterator<Map.Entry<Integer, Set<Integer>>> iterator = requiredMap.entrySet().iterator();
       while (iterator.hasNext()) {
         Map.Entry<Integer, Set<Integer>> entry = iterator.next();
-        if (!map1.containsKey(entry.getKey())) {
-          for (Integer course : entry.getValue()) map1.get(course).remove(entry.getKey());
+        if (!requiresMap.containsKey(entry.getKey())) {
+          for (Integer course : entry.getValue()) requiresMap.get(course).remove(entry.getKey());
           iterator.remove();
           canTakeCourse = true;
         }
       }
 
-      iterator = map1.entrySet().iterator();
+      iterator = requiresMap.entrySet().iterator();
       while (iterator.hasNext()) if (iterator.next().getValue().isEmpty()) iterator.remove();
     }
-    return map2.isEmpty();
+    return requiredMap.isEmpty();
   }
 
   public boolean canFinish2(int numCourses, int[][] prerequisites) {
-    if (prerequisites == null) throw new IllegalArgumentException("illegal prerequisites array");
     int len = prerequisites.length;
     if (numCourses == 0 || len == 0) return true;
     // counter for number of prerequisites
@@ -69,7 +70,6 @@ public class Q0207CourseSchedule {
   }
 
   public boolean canFinish(int numCourses, int[][] prerequisites) {
-    if (prerequisites == null) throw new IllegalArgumentException("illegal prerequisites array");
     int len = prerequisites.length;
     if (numCourses == 0 || len == 0) return true;
     // track visited courses

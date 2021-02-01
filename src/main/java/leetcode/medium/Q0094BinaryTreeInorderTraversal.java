@@ -15,9 +15,9 @@ public class Q0094BinaryTreeInorderTraversal {
 
   public void inorderTraversal1(TreeNode root, List<Integer> list) {
     if (root == null) return;
-    if (root.left != null) inorderTraversal1(root.left, list);
+    inorderTraversal1(root.left, list);
     list.add(root.val);
-    if (root.right != null) inorderTraversal1(root.right, list);
+    inorderTraversal1(root.right, list);
   }
 
   public List<Integer> inorderTraversal2(TreeNode root) {

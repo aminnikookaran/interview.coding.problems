@@ -7,7 +7,7 @@ public class Q0096UniqueBinarySearchTrees {
     dp[0] = 1;
     dp[1] = 1;
     for (int level = 2; level <= n; level++)
-      for (int root = 1; root <= level; root++) dp[level] += dp[level - root] * dp[root - 1];
+      for (int root = 1; root <= level; root++) dp[level] += dp[root - 1] * dp[level - root];
     return dp[n];
   }
 }

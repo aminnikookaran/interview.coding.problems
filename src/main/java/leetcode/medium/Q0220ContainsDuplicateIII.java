@@ -31,10 +31,10 @@ public class Q0220ContainsDuplicateIII {
 
   public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
     if (nums == null || nums.length == 0 || k <= 0) return false;
-    final TreeSet<Integer> values = new TreeSet<>();
+    TreeSet<Integer> values = new TreeSet<>();
     for (int ind = 0; ind < nums.length; ind++) {
-      final Integer floor = values.floor(nums[ind] + t);
-      final Integer ceil = values.ceiling(nums[ind] - t);
+      Integer floor = values.floor(nums[ind] + t);
+      Integer ceil = values.ceiling(nums[ind] - t);
       if ((floor != null && floor >= nums[ind]) || (ceil != null && ceil <= nums[ind])) return true;
       values.add(nums[ind]);
       if (ind >= k) values.remove(nums[ind - k]);

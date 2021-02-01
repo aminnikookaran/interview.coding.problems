@@ -33,8 +33,8 @@ public class Q0163MissingRanges {
 
   public List<String> findMissingRanges2(int[] nums, int lower, int upper) {
     List<String> result = new ArrayList<>();
-    int start = lower;
     if (lower == Integer.MAX_VALUE) return result;
+    int start = lower;
     for (int i = 0; i < nums.length; i++) {
       // handle duplicates, e.g., [1,1,1] lower=1 upper=1
       if (i < nums.length - 1 && nums[i] == nums[i + 1]) continue;

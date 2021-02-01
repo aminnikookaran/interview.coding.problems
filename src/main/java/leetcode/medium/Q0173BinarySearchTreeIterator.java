@@ -11,7 +11,7 @@ public class Q0173BinarySearchTreeIterator {
     int index;
 
     public BSTIterator1(TreeNode root) {
-      this.nodesSorted = new ArrayList<Integer>();
+      this.nodesSorted = new ArrayList<>();
       this.index = -1;
       this._inorder(root);
     }
@@ -38,7 +38,7 @@ public class Q0173BinarySearchTreeIterator {
     Stack<TreeNode> stack;
 
     public BSTIterator2(TreeNode root) {
-      this.stack = new Stack<TreeNode>();
+      this.stack = new Stack<>();
       this._leftmostInorder(root);
     }
 

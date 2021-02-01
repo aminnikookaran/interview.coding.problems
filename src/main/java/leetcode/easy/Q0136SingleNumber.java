@@ -13,9 +13,9 @@ public class Q0136SingleNumber {
   }
 
   public int singleNumber2(int[] nums) {
-    HashMap<Integer, Integer> hash_table = new HashMap<>();
-    for (int i : nums) hash_table.put(i, hash_table.getOrDefault(i, 0) + 1);
-    for (int i : nums) if (hash_table.get(i) == 1) return i;
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i : nums) map.put(i, map.getOrDefault(i, 0) + 1);
+    for (int i : nums) if (map.get(i) == 1) return i;
     return 0;
   }
 

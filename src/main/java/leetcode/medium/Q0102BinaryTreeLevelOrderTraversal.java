@@ -42,7 +42,7 @@ public class Q0102BinaryTreeLevelOrderTraversal {
       nodeValues.add(node.val);
       if (current.isEmpty()) {
         current = next;
-        next = new LinkedList<TreeNode>();
+        next = new LinkedList<>();
         al.add(nodeValues);
         nodeValues = new ArrayList<>();
       }

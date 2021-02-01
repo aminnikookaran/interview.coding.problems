@@ -26,7 +26,7 @@ public class Q0038CountAndSay {
   }
 
   public String countAndSay2(int n) {
-    LinkedList<Integer> prevSeq = new LinkedList<Integer>();
+    LinkedList<Integer> prevSeq = new LinkedList<>();
     prevSeq.add(1);
     // Using -1 as the delimiter
     prevSeq.add(-1);
@@ -45,7 +45,7 @@ public class Q0038CountAndSay {
       return prevSeq;
     }
 
-    LinkedList<Integer> nextSeq = new LinkedList<Integer>();
+    LinkedList<Integer> nextSeq = new LinkedList<>();
     Integer prevDigit = null;
     Integer digitCnt = 0;
     for (Integer digit : prevSeq) {
